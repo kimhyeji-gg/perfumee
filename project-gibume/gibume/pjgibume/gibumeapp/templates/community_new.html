@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {%block content%}
+
+<html>
+    <head>
+        {% load static %} {% block extrahead %}
+        <link rel="stylesheet" href="{% static 'css/community_new.css' %}" />
+        <title>COMMUNITY</title>
+        {% endblock %}
+    </head>
+    <div class="newWrapper">
+        <div class="commnunityNewHeaderWrapper"></div>
+    </div>
+
+    <div class="newContentWrapper">
+        <div class="inputWrapper">
+            <form
+                action="{%url 'create' %}"
+                method="POST"
+                enctype="multipart/form-data"
+                class="formWrapper"
+            >
+                {% csrf_token %}
+                <input
+                    name="title"
+                    type="text"
+                    class="titleInput"
+                    placeholder="제목을 입력하세요."
+                />
+                <textarea name="body" id="" class="bodyInput"></textarea>
+                <div class="srcWrapper">
+                    <input type="file" name="image" className="file" />
+                    <input class="submitBtn" type="submit" value="제출하기" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% endblock%}
+</html>

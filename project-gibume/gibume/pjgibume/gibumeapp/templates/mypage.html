@@ -1,0 +1,209 @@
+{% extends 'base.html' %} {%block content%}
+
+<head>
+  {% load static %} {% block extrahead %}
+
+  <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+  
+  {% endblock %}
+
+<body>
+  <div class="title">
+    <p class="maintitle">MYPAGE</p>
+    <a href = "#main">
+      <div class="arrow">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </a>
+  </div>
+  <div class = "top" id = "main" style = "width:100%; height:40px; background-color:#282828;"></div>
+  <div class="detail_1">
+    <div class="detail_2">
+      <div class="info1">
+        <p class="subtitle">MY INFO</p1>
+          <hr class = "line">
+          <div class="profs">
+            <div class="prof1"><img class="Img" src="../static/img/call.jpg" alt="" /></div>
+            <div class="prof2">
+
+              <p class="infodetail">닉네임 : {{user.nickname}}</p>
+              <p class="infodetail">이메일 : {{user.email}}</p>
+              <p class="infodetail">기타정보 : ({{user.gender}}) {{user.age}}세</p>
+            </div>
+          </div>
+      </div>
+      <br>
+      <div class="info3">
+        <p class="subtitle">PERFUME REVIEW</p1>
+          <hr class = "line">
+          <div class = "review">
+          <div class="like">
+
+            <div class="tabset">
+              <!-- Tab 1 -->
+              <input type="radio" name="tabset" id="tab1" aria-controls="like" checked>
+              <label for="tab1">LIKE</label>
+              <!-- Tab 2 -->
+              <input type="radio" name="tabset" id="tab2" aria-controls="ok">
+              <label for="tab2">OK</label>
+              <!-- Tab 3 -->
+              <input type="radio" name="tabset" id="tab3" aria-controls="dislike">
+              <label for="tab3">DISLIKE</label>
+              
+              <div class="tab-panels">
+                <section id="like" class="tab-panel">
+                  <div class="perfume_list">
+                    {%for product in like_product_list%}
+                    <a href="{%url 'product' product.name%}">
+                    <div class = "perfume">
+                      <figure class = "perfume_thumb">
+                        <img src="{% get_static_prefix %}img/{{product.perfume_img}}.jpg" class="perfume_img">
+                        <figcaption class="perfume_caption">
+                          <p class = "perfume_brand">[{{product.brand}}]</p>
+                          <p class = "perfume_name">{{product.name}}</p>
+                            <div class = "perfume_info">
+                              <hr class = "h1">
+                              <p class = "perfume_time" style = "padding-top:10px; padding-bottom:5px;">{{product.get_time_display}}</p>
+                              <hr class = "h2">
+                              <p class = "perfume_note" style = "padding-top:5px; padding-bottom:3px; width:95%;">{{product.get_note_group_display}}</p>
+                            </div>
+                        </figcaption>
+                      </figure>
+                    </div>
+                    </a>
+                    {% endfor %}
+                    
+                  </div>
+                </section>
+                <section id="ok" class="tab-panel">
+                  <div class="perfume_list">
+                    {%for product in ok_product_list%}
+                    <a href="{%url 'product' product.name%}"> 
+                      <div class = "perfume">
+                        <figure class = "perfume_thumb">
+                          <img src="{% get_static_prefix %}img/{{product.perfume_img}}.jpg" class="perfume_img">
+                          <figcaption class="perfume_caption">
+                            <p class = "perfume_brand">[{{product.brand}}]</p>
+                            <p class = "perfume_name">{{product.name}}</p>
+                              <div class = "perfume_info">
+                                <hr class = "h1">
+                                <p class = "perfume_time" style = "padding-top:10px; padding-bottom:5px;">{{product.get_time_display}}</p>
+                                <hr class = "h2">
+                                <p class = "perfume_note" style = "padding-top:5px; padding-bottom:3px; width:95%;">{{product.get_note_group_display}}</p>
+                              </div>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      </a>
+                    {%endfor%}
+                  </div>
+                </section>
+                <section id="dislike" class="tab-panel">
+                  <div class="perfume_list">
+                    {%for product in dislike_product_list%}
+                    <a href="{%url 'product' product.name%}">
+                      <div class = "perfume">
+                        <figure class = "perfume_thumb">
+                          <img src="{% get_static_prefix %}img/{{product.perfume_img}}.jpg" class="perfume_img">
+                          <figcaption class="perfume_caption">
+                            <p class = "perfume_brand">[{{product.brand}}]</p>
+                            <p class = "perfume_name">{{product.name}}</p>
+                              <div class = "perfume_info">
+                                <hr class = "h1">
+                                <p class = "perfume_time" style = "padding-top:10px; padding-bottom:5px;">{{product.get_time_display}}</p>
+                                <hr class = "h2">
+                                <p class = "perfume_note" style = "padding-top:5px; padding-bottom:3px; width:95%;">{{product.get_note_group_display}}</p>
+                              </div>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      </a>
+                    {%endfor%}
+                  </div>
+                </section>
+              </div>
+              
+          
+          </div>
+          <div class="perfume_comment">
+            <p class="post-title">[COMMENT]</p>
+              <div class=list-group1>
+                {%for comment in comment_list%}
+                  <div class = "comm_list">
+                    <a href="{%url 'product' comment.name %}" method="POST" class = "a1">
+                      
+                        <h1 class = "comm_title">{{comment.name}}</h1>
+                        <h1 class = "comm_cont">{{comment.content}}</h1>
+                        <h1 class = "comm_date">{{comment.pub_date}}</h1>
+
+                    </a>
+                  </div>
+                {%endfor%}
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="info2">
+        <p class="subtitle">COMMUNITY</p1>
+          <hr class = "line">
+          <div class="posts">
+            <div class="post">
+              <p class="post-title">[POST]</p>
+              <div class="list-group1">
+                {%for community in community_list%}
+                <div class = "comu_post">
+                  <a href="{%url 'community_detail' community.id %}" method="POST" class = "a1">
+                      <h1 class = "comu_title">{{community.title}}</h1>
+                      <h1 class = "comu_date">{{community.date}}</h1>            
+                  </a>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+            <div class="comment">
+              <p class="post-title">[COMMENT]</p>
+              <div class="list-group1">
+                {%for com in com_comment%}
+                <div class = "comu_comm">
+                <a href="{%url 'community_detail' com.post_id %}" method="POST" class = "a1">
+                  <h1 class = "comm_cont">{{com.comment_text}}</h1>
+                  <h1 class = "comm_date">{{com.created_at}}</h1>
+                  
+                </a>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <br>
+      <div class="info4">
+        <p class="subtitle">SAVED</p1>
+          <hr class = "line">
+          <div class="likepost">
+            <p class="post-title">[POST]</p>
+            <div class="list-group2">
+              {%for post in save_post_list%}
+              <div class = "comu_post2">
+                <a href="{%url 'community_detail' post.id %}" method="POST" class = "a1">
+                
+                  <h1 class = "comu_title">{{post.title}}</h1>
+                  <h1 class = "comu_date">{{post.date}}</h1>         
+                
+                </a>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

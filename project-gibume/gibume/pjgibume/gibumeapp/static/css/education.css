@@ -1,0 +1,130 @@
+a {
+    color: #ffffff;
+}
+
+.eduWrapper {
+    width: 100%;
+    height: auto;
+    /* padding-top: 35px; */
+}
+
+.eduHeaderWrapper {
+    width: 100%;
+    height: 70vh;
+    background: url("https://images.unsplash.com/photo-1589289986796-6cfd8987d6c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80");
+
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.maintitle {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f4a7b5;
+}
+
+.commnuityBarWrapper {
+    width: 100%;
+    height: 8vh;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eduCateWrapper {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+}
+
+.cateItem {
+    cursor: pointer;
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282828;
+    color: #f8b5d7;
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+
+.cateItem a {
+    color: #f8b5d7;
+}
+
+.here {
+    background-color: #f8b5d7;
+}
+
+.here a {
+    color: #282828;
+}
+
+.cateItem:hover {
+    background-color: #ffffff;
+}
+
+.eduSec {
+    width: 100%;
+    height: 50vh;
+    background-color: #f8b5d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.contentsWrapper {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    background-color: #ffffff;
+}
+
+.eduBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #f8b5d7;
+}
+
+.eduBox .title span {
+    color: #f8b5d7;
+    font-size: 28px;
+    font-weight: 200;
+}
+
+.topBtn {
+    cursor: pointer;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topBtn .topImg i {
+    font-size: 1.4rem;
+    color: #000;
+}
+
+.topHref {
+    color: #000;
+}

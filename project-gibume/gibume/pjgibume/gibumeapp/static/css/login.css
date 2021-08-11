@@ -1,0 +1,65 @@
+input:focus {
+    outline: none;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+.loginWrapper {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/loginBg.jpg");
+    background-size: cover;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.formHeader {
+    margin: 0 auto;
+    width: 20rem;
+    height: 20rem;
+    background: url("../img/nuLogo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.formItem {
+    border: 1px solid #ffffff;
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.formItem span {
+    margin-left: 10px;
+    width: 4rem;
+    text-align: start;
+    font-weight: 200;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.formItem input {
+    margin-left: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.btn {
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    font-weight: 200;
+}
